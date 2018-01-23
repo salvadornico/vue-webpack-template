@@ -1,11 +1,11 @@
 <template lang="pug">
 #app
 	img(src="./assets/logo.png")
-    {{#router}}
-    router-view
-    {{else}}
-    HelloWorld
-    {{/router}}
+	{{#router}}
+	router-view
+	{{else}}
+	HelloWorld
+	{{/router}}
 </template>
 
 <script>
@@ -16,7 +16,7 @@ import HelloWorld from './components/HelloWorld'
 export default {
   name: 'App'{{#router}}{{else}},
   components: {
-    HelloWorld
+	HelloWorld
   }{{/router}}
 }
 </script>
