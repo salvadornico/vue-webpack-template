@@ -28,8 +28,7 @@ module.exports = {
 	{{# if_eq lintConfig "none" }}
 	// https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
 	// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-	extends: ['plugin:vue/recommended'],
-	{{ /if_eq }}
+	extends: ['plugin:vue/recommended'],{{ /if_eq }}
 	// required to lint *.vue files
 	plugins: [
 		'vue', 'html'
