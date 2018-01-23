@@ -11,7 +11,7 @@ module.exports = {
 	env: {
 		browser: true,
 	},
-	{{# if_eq lintConfig "standard" }}
+	{{#if_eq lintConfig "standard"}}
 	extends: [
 		// https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
 		// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
@@ -19,21 +19,22 @@ module.exports = {
 		// https://github.com/standard/standard/blob/master/docs/RULES-en.md
 		"eslint:recommended",
 	],
-	{{ /if_eq}}
-	{{# if_eq lintConfig "airbnb" }}
+	{{/if_eq}}
+	{{#if_eq lintConfig "airbnb"}}
 	// https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
 	// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
 	extends: ['plugin:vue/recommended', 'airbnb-base'],
-	{{ /if_eq}}
-	{{# if_eq lintConfig "none" }}
+	{{/if_eq}}
+	{{#if_eq lintConfig "none"}}
 	// https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
 	// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-	extends: ['plugin:vue/recommended'],{{ /if_eq }}
+	extends: ['plugin:vue/recommended'],
+	{{/if_eq}}
 	// required to lint *.vue files
 	plugins: [
 		'vue', 'html'
 	],
-	{{# if_eq lintConfig "airbnb" }}
+	{{#if_eq lintConfig "airbnb"}}
 	// check if imports actually resolve
 	settings: {
 		'import/resolver': {
@@ -42,14 +43,14 @@ module.exports = {
 			}
 		}
 	},
-	{{ /if_eq }}
+	{{/if_eq}}
 	// add your custom rules here
 	rules: {
-		{{# if_eq lintConfig "standard" }}
+		{{#if_eq lintConfig "standard"}}
 		// allow async-await
 		'generator-star-spacing': 'off',
-		{{ /if_eq}}
-		{{# if_eq lintConfig "airbnb" }}
+		{{/if_eq}}
+		{{#if_eq lintConfig "airbnb"}}
 		// don't require .vue extension when importing
 		'import/extensions': ['error', 'always', {
 			js: 'never',
@@ -69,7 +70,7 @@ module.exports = {
 		'import/no-extraneous-dependencies': ['error', {
 			optionalDependencies: ['test/unit/index.js']
 		}],
-		{{ /if_eq }}
+		{{/if_eq}}
 		// allow debugger during development
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		"arrow-parens": 0,
